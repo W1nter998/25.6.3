@@ -41,6 +41,11 @@
             100% { transform: scale(1); }
         }
 
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* 顶部导航 */
         .navbar {
             display: flex;
@@ -51,6 +56,9 @@
             color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             animation: fadeIn 0.8s ease-out; /* 导航栏淡入动画 */
+            position: sticky; /* 导航栏固定 */
+            top: 0;
+            z-index: 1000; /* 确保在其他内容之上 */
         }
 
         .navbar-brand {
@@ -92,15 +100,16 @@
         /* 英雄部分 (首屏核心内容) */
         .hero-section {
             background: linear-gradient(135deg, #f0f2f5 0%, #e0e6ed 100%); /* 浅色渐变背景 */
-            padding: 60px 20px;
+            padding: 80px 20px; /* 增加上下内边距 */
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             flex-grow: 1; /* 占据剩余空间 */
-            position: relative; /* 为动画背景做准备 */
-            overflow: hidden; /* 防止背景粒子溢出 */
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh; /* 确保首屏至少占80%视口高度 */
         }
 
         /* 简单的动画背景粒子 */
@@ -116,12 +125,18 @@
             background-size: 50px 50px, 100px 100px;
             animation: moveBackground 30s linear infinite;
             opacity: 0.5;
+            z-index: 0; /* 确保在内容下方 */
         }
         @keyframes moveBackground {
             from { background-position: 0 0; }
             to { background-position: 500px 500px; }
         }
 
+        .hero-content {
+            position: relative; /* 确保内容在背景粒子上方 */
+            z-index: 1;
+            max-width: 800px;
+        }
 
         .hero-headline {
             font-size: 2.8em;
@@ -129,7 +144,7 @@
             color: #2c3e50;
             margin-bottom: 15px;
             line-height: 1.2;
-            animation: fadeIn 1s ease-out; /* 标题淡入动画 */
+            animation: fadeIn 1s ease-out;
             animation-delay: 0.2s;
             animation-fill-mode: backwards;
         }
@@ -138,8 +153,7 @@
             font-size: 1.2em;
             color: #666;
             margin-bottom: 30px;
-            max-width: 700px;
-            animation: fadeIn 1s ease-out; /* 副标题淡入动画 */
+            animation: fadeIn 1s ease-out;
             animation-delay: 0.4s;
             animation-fill-mode: backwards;
         }
@@ -155,7 +169,7 @@
             font-size: 1.1em;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 8px 15px rgba(0, 114, 255, 0.3);
-            animation: fadeIn 1s ease-out, pulsate 2s infinite; /* 按钮淡入和脉动动画 */
+            animation: fadeIn 1s ease-out, pulsate 2s infinite;
             animation-delay: 0.6s;
             animation-fill-mode: backwards;
         }
@@ -165,7 +179,133 @@
             box-shadow: 0 12px 20px rgba(0, 114, 255, 0.4);
         }
 
-        /* 手机端适配 */
+        /* 通用内容区块样式 */
+        .content-section {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: backwards;
+            opacity: 0; /* 初始隐藏，通过JS触发动画 */
+        }
+
+        /* 特性部分 */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideInUp 1s ease-out;
+            animation-fill-mode: backwards;
+            opacity: 0; /* 初始隐藏 */
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .feature-item i {
+            font-size: 3em;
+            color: #2575fc;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        /* 用户评价部分 */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: left;
+            animation: slideInUp 1s ease-out;
+            animation-fill-mode: backwards;
+            opacity: 0; /* 初始隐藏 */
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .testimonial-rating {
+            color: #ffc107; /* 黄色星星 */
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        /* 底部 CTA 部分 */
+        .bottom-cta-section {
+            background: linear-gradient(to right, #2575fc, #6a11cb); /* 和顶部导航相同的渐变 */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: backwards;
+            opacity: 0; /* 初始隐藏 */
+        }
+
+        .bottom-cta-section h2 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 2.2em;
+        }
+
+        /* 页脚 */
+        .footer {
+            background-color: #222;
+            color: #eee;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: auto; /* 推到页面底部 */
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        /* 手机端适配 (保持不变) */
         @media (max-width: 768px) {
             .navbar {
                 padding: 15px;
@@ -209,6 +349,14 @@
                 padding: 12px 25px;
                 font-size: 1em;
             }
+
+            .content-section {
+                padding: 50px 15px;
+            }
+
+            .content-section h2 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
@@ -220,18 +368,83 @@
             <i class="fas fa-bars"></i>
         </button>
         <ul class="navbar-menu" id="navbar-menu">
-            <li><a href="#">产品</a></li>
-            <li><a href="#">特性</a></li>
-            <li><a href="#">价格</a></li>
-            <li><a href="#">联系我们</a></li>
+            <li><a href="#features">产品</a></li>
+            <li><a href="#testimonials">评价</a></li>
+            <li><a href="#cta-bottom">体验</a></li>
+            <li><a href="#">联系</a></li>
         </ul>
     </nav>
 
     <section class="hero-section">
-        <h1 class="hero-headline">轻松管理，无限可能。</h1>
-        <p class="hero-subtitle">我们提供强大的工具，助你高效工作，实现梦想。立即开始，改变你的生活方式！</p>
-        <a href="#" class="cta-button">立即体验免费版</a>
+        <div class="hero-content">
+            <h1 class="hero-headline">轻松管理，无限可能。</h1>
+            <p class="hero-subtitle">我们提供强大的工具，助你高效工作，实现梦想。立即开始，改变你的生活方式！</p>
+            <a href="#" class="cta-button">立即体验免费版</a>
+        </div>
     </section>
+
+    <section id="features" class="content-section">
+        <h2 class="animate-on-scroll">核心功能</h2>
+        <div class="features-grid">
+            <div class="feature-item animate-on-scroll">
+                <i class="fas fa-magic"></i>
+                <h3>智能自动化</h3>
+                <p>告别繁琐重复工作，AI 智能驱动，一键完成复杂任务，提升数倍效率。</p>
+            </div>
+            <div class="feature-item animate-on-scroll" style="animation-delay: 0.2s;">
+                <i class="fas fa-lock"></i>
+                <h3>数据安全</h3>
+                <p>采用军用级加密技术，多重备份，严格遵守隐私法规，确保您的数据万无一失。</p>
+            </div>
+            <div class="feature-item animate-on-scroll" style="animation-delay: 0.4s;">
+                <i class="fas fa-globe"></i>
+                <h3>全球协作</h3>
+                <p>无论身处何地，都能与团队成员无缝协作，实时同步，共同推进项目。</p>
+            </div>
+            <div class="feature-item animate-on-scroll" style="animation-delay: 0.6s;">
+                <i class="fas fa-chart-line"></i>
+                <h3>智能分析</h3>
+                <p>深度洞察数据，提供可视化报告，助您快速制定明智决策，抓住市场机遇。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="content-section" style="background-color: #f9f9f9;">
+        <h2 class="animate-on-scroll">用户评价</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-item animate-on-scroll">
+                <p>"这款产品彻底改变了我的工作方式，效率提升了不止一倍！界面简洁，功能强大，强烈推荐！"</p>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="testimonial-author">- 张女士, 市场总监</span>
+            </div>
+            <div class="testimonial-item animate-on-scroll" style="animation-delay: 0.2s;">
+                <p>"之前用过很多同类工具，但这个的流畅度和稳定性是最好的。客服响应速度也很快，非常满意。"</p>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="testimonial-author">- 王先生, 创业者</span>
+            </div>
+            <div class="testimonial-item animate-on-scroll" style="animation-delay: 0.4s;">
+                <p>"简洁的界面下隐藏着强大的功能，学习成本低，我的团队很快就上手了。提升了我们的团队协作效率。"</p>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="testimonial-author">- 李总, 技术总监</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta-bottom" class="bottom-cta-section animate-on-scroll">
+        <h2>准备好提升你的工作效率了吗？</h2>
+        <p style="margin-bottom: 30px; font-size: 1.1em; max-width: 700px; margin-left: auto; margin-right: auto;">立即免费注册，体验这款革新性的产品，开启你的高效之旅！</p>
+        <a href="#" class="cta-button">立即免费体验</a>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 你的公司名称. All rights reserved.</p>
+    </footer>
 
     <script>
         // JavaScript 用于移动端导航菜单切换
@@ -242,9 +455,48 @@
             navbarMenu.classList.toggle('active');
         });
 
-        // 你可以在这里添加更多 JavaScript 动画或交互逻辑
-        // 例如：滚动时元素的淡入效果 (Intersection Observer API)
-        // 或者平滑滚动到锚点
+        // 滚动时元素的淡入效果 (Intersection Observer API)
+        const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 如果元素进入视口，添加 animated 类以触发CSS动画
+                    entry.target.classList.add('is-animated');
+                    // 停止观察，避免重复触发
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1, // 元素 10% 进入视口时触发
+            rootMargin: '0px 0px -50px 0px' // 视口底部以上50px触发，避免太早触发
+        });
+
+        animateOnScrollElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // 添加一个CSS规则，当有 'is-animated' 类时，动画生效
+        const styleSheet = document.createElement('style');
+        styleSheet.type = 'text/css';
+        styleSheet.innerText = `
+            .animate-on-scroll.is-animated {
+                opacity: 1;
+                transform: translateY(0);
+                animation: fadeIn 1s ease-out forwards; /* 使用 forwards 保持动画结束状态 */
+            }
+            /* 针对 feature-item 和 testimonial-item 的特定动画 */
+            .feature-item.is-animated,
+            .testimonial-item.is-animated {
+                animation: slideInUp 1s ease-out forwards;
+            }
+            .bottom-cta-section.is-animated {
+                animation: fadeIn 1s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+
     </script>
 </body>
 </html>
