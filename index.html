@@ -38,10 +38,10 @@
         @keyframes pulsate {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            100% { transform: 1; }
         }
 
-        /* 顶部导航相关 CSS 移除，因为它将被删除 */
+        /* 顶部导航相关 CSS 移除，因为它已被删除 */
 
         /* 英雄部分 */
         .hero-section {
@@ -316,6 +316,74 @@
             font-size: 2.2em;
         }
 
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-item {
+            background-color: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .contact-item:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .contact-item i {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #ffc107; /* 强调色 */
+        }
+        .contact-item h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .contact-item p {
+            font-size: 1.1em;
+            word-break: break-all; /* 确保长数字和邮箱不溢出 */
+        }
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .contact-item a:hover {
+            color: #ffc107;
+        }
+
+        .qrcode-container {
+            margin-top: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block; /* 使得容器大小包裹内容 */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .qrcode-container img {
+            width: 150px; /* 控制二维码大小 */
+            height: 150px;
+            display: block; /* 移除图片底部空白 */
+        }
+        .qrcode-container p {
+            color: #333;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+
         /* 页脚 */
         .footer {
             background-color: #222;
@@ -385,6 +453,10 @@
             .cta-button {
                 padding: 12px 25px;
                 font-size: 1em;
+                margin: 5px 0; /* 手机端按钮垂直堆叠 */
+            }
+            .cta-button:first-of-type { /* 调整第一个按钮的右外边距，在手机上无需 */
+                 margin-right: 0;
             }
 
             .content-section {
@@ -400,6 +472,9 @@
                 padding: 10px 15px;
                 font-size: 0.9em;
             }
+            .contact-info-grid {
+                grid-template-columns: 1fr; /* 手机端单列布局 */
+            }
         }
     </style>
 </head>
@@ -409,7 +484,7 @@
         <div class="hero-content">
             <h1 class="hero-headline">鋆赫财税：您的专业财税管家，让企业发展无后顾之忧！</h1>
             <p class="hero-subtitle">一站式代账报税、工商注册、地址挂靠、高新申报，助您在杭州及周边高效发展。</p>
-            <a href="#contact" class="cta-button">立即免费咨询 <i class="fas fa-phone-alt"></i></a>
+            <a href="tel:17395711633" class="cta-button">立即免费咨询 <i class="fas fa-phone-alt"></i></a>
         </div>
     </section>
 
@@ -591,19 +666,44 @@
         <p style="margin-bottom: 30px; font-size: 1.1em; max-width: 700px; margin-left: auto; margin-right: auto;">
             无论是新办企业、新个体工商户，还是老企业/个体户的财税难题，我们都能为您提供专业的解决方案。
         </p>
-        <a href="tel:您的电话号码" class="cta-button" style="margin-right: 15px;">
-            <i class="fas fa-phone-alt"></i> 电话咨询
-        </a>
-        <a href="mailto:您的邮箱地址" class="cta-button">
-            <i class="fas fa-envelope"></i> 邮箱联系
-        </a>
-        <p style="margin-top: 20px; font-size: 1.1em; color: rgba(255,255,255,0.8);">
-            公司地址：浙江省杭州市滨江区XXX大厦XXX室
-        </p>
+        <div class="contact-info-grid">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <h3>电话咨询</h3>
+                <p>
+                    <a href="tel:17395711633">17395711633</a>
+                    <br> (手机同号，欢迎随时来电)
+                </p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h3>邮箱联系</h3>
+                <p>
+                    <a href="mailto:17395711633@163.com">17395711633@163.com</a>
+                </p>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-weixin"></i>
+                <h3>微信咨询</h3>
+                <div class="qrcode-container">
+                    <img src="https://via.placeholder.com/150/FFC107/FFFFFF?text=微信二维码" alt="微信二维码">
+                    <p>扫码添加微信，1对1在线咨询</p>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>公司地址</h3>
+                <p>浙江省杭州市滨江区西兴街道泽明科创园211</p>
+                <p style="font-size:0.9em; margin-top:5px;">(欢迎预约上门洽谈)</p>
+            </div>
+        </div>
+        
     </section>
 
     <footer class="footer">
         <p>Copyright &copy; 2023 杭州鋆赫财税服务有限公司. All rights reserved.</p>
+        <p>联系电话：<a href="tel:17395711633" style="color:#eee; text-decoration:none;">17395711633</a> | 邮箱：<a href="mailto:17395711633@163.com" style="color:#eee; text-decoration:none;">17395711633@163.com</a></p>
+        <p>公司地址：浙江省杭州市滨江区西兴街道泽明科创园211</p>
         <p>专业代账 | 工商注册 | 地址挂靠 | 高新申报 | 财税咨询 | 立足杭州滨江，服务全城及周边</p>
         <div class="social-links">
             <a href="#" target="_blank" title="微信"><i class="fab fa-weixin"></i></a>
@@ -678,7 +778,7 @@
         `;
         document.head.appendChild(styleSheet);
 
-        // 平滑滚动到锚点 - 保持不变，但因为没有导航栏，主要用于浮动按钮和英雄部分的CTA
+        // 平滑滚动到锚点 - 保持不变
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -691,13 +791,6 @@
                 }
             });
         });
-        
-        // 移除导航条高亮相关JS，因为导航条已经没有了
-        // const sections = document.querySelectorAll('section[id]');
-        // const navLinks = document.querySelectorAll('.navbar-menu a');
-        // function activateNavLink() { ... }
-        // window.addEventListener('scroll', activateNavLink);
-        // document.addEventListener('DOMContentLoaded', activateNavLink);
     </script>
 </body>
 </html>
