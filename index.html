@@ -86,11 +86,31 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative; /* 用于下划线效果 */
         }
 
         .navbar-menu a:hover {
             color: #d1ecf1;
         }
+        /* 导航菜单下划线动画 */
+        .navbar-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #d1ecf1;
+            transition: width 0.3s ease-out;
+        }
+        .navbar-menu a:hover::after {
+            width: 100%;
+        }
+        .navbar-menu a.active-link::after { /* JS控制的当前活跃链接 */
+             width: 100%;
+             background-color: #ffffff; /* 确保当前链接更亮 */
+        }
+
 
         /* 英雄部分 */
         .hero-section {
@@ -393,6 +413,29 @@
             color: #20c997;
             transform: translateY(-3px);
         }
+        /* 可选：浮动咨询按钮 */
+        .fixed-contact-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #ffc107; /* 强调色 */
+            color: #333;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1em;
+        }
+        .fixed-contact-button:hover {
+            transform: translateY(-3px);
+            background: #e0a800;
+        }
 
         /* 手机端适配 */
         @media (max-width: 768px) {
@@ -446,9 +489,11 @@
             .content-section h2 {
                 font-size: 2em;
             }
-
-            .showcase-image, .showcase-video { /* 移除此部分，因财税公司没有直接产品截图 */
-                display: none; 
+            .fixed-contact-button {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 15px;
+                font-size: 0.9em;
             }
         }
     </style>
@@ -675,6 +720,10 @@
             </div>
     </footer>
 
+    <a href="#contact" class="fixed-contact-button">
+        <i class="fas fa-comments"></i> 立即咨询
+    </a>
+
     <script>
         // JavaScript 用于移动端导航菜单切换
         const navbarToggle = document.getElementById('navbar-toggle');
@@ -748,22 +797,54 @@
             });
         });
 
-        // 平滑滚动到锚点
+        // 平滑滚动到锚点 & 导航高亮
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar-menu a');
+
+        function activateNavLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) { /* 提前一点激活 */
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active-link');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', activateNavLink);
+        document.addEventListener('DOMContentLoaded', activateNavLink); // 页面加载时也执行一次
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
 
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                
                 // 如果是移动端菜单，点击后关闭菜单
                 if (navbarMenu.classList.contains('active')) {
                     navbarMenu.classList.remove('active');
                 }
+
+                // 手动设置点击的链接为 active
+                navLinks.forEach(link => link.classList.remove('active-link'));
+                this.classList.add('active-link');
             });
         });
-
     </script>
 </body>
 </html>
