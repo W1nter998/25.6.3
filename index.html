@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>你的产品/服务 - 精彩呈现</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS Reset 和通用样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5;
+            overflow-x: hidden; /* 防止水平滚动 */
+            min-height: 100vh; /* 确保页面至少占满视口高度 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 动画关键帧 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulsate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* 渐变背景 */
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 0.8s ease-out; /* 导航栏淡入动画 */
+        }
+
+        .navbar-brand {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar-toggle {
+            font-size: 1.5em;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: none; /* 默认桌面端隐藏 */
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar-menu li {
+            margin-left: 25px;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-menu a:hover {
+            color: #a0c4ff;
+        }
+
+        /* 英雄部分 (首屏核心内容) */
+        .hero-section {
+            background: linear-gradient(135deg, #f0f2f5 0%, #e0e6ed 100%); /* 浅色渐变背景 */
+            padding: 60px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1; /* 占据剩余空间 */
+            position: relative; /* 为动画背景做准备 */
+            overflow: hidden; /* 防止背景粒子溢出 */
+        }
+
+        /* 简单的动画背景粒子 */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%),
+                        radial-gradient(circle, rgba(255,255,255,0.05) 2%, transparent 2%);
+            background-size: 50px 50px, 100px 100px;
+            animation: moveBackground 30s linear infinite;
+            opacity: 0.5;
+        }
+        @keyframes moveBackground {
+            from { background-position: 0 0; }
+            to { background-position: 500px 500px; }
+        }
+
+
+        .hero-headline {
+            font-size: 2.8em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            animation: fadeIn 1s ease-out; /* 标题淡入动画 */
+            animation-delay: 0.2s;
+            animation-fill-mode: backwards;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 700px;
+            animation: fadeIn 1s ease-out; /* 副标题淡入动画 */
+            animation-delay: 0.4s;
+            animation-fill-mode: backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, #00c6ff, #0072ff); /* 蓝色渐变 */
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 114, 255, 0.3);
+            animation: fadeIn 1s ease-out, pulsate 2s infinite; /* 按钮淡入和脉动动画 */
+            animation-delay: 0.6s;
+            animation-fill-mode: backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0, 114, 255, 0.4);
+        }
+
+        /* 手机端适配 */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px;
+            }
+            .navbar-menu {
+                display: none; /* 默认隐藏菜单 */
+                flex-direction: column;
+                width: 100%;
+                background: linear-gradient(to right, #6a11cb, #2575fc);
+                position: absolute;
+                top: 60px; /* 根据导航栏高度调整 */
+                left: 0;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+            .navbar-menu.active {
+                display: flex; /* 激活时显示 */
+            }
+            .navbar-menu li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .navbar-menu li:last-child {
+                border-bottom: none;
+            }
+            .navbar-toggle {
+                display: block; /* 手机端显示切换按钮 */
+            }
+
+            .hero-headline {
+                font-size: 2em;
+            }
+
+            .hero-subtitle {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">你的品牌Logo</a>
+        <button class="navbar-toggle" id="navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="navbar-menu" id="navbar-menu">
+            <li><a href="#">产品</a></li>
+            <li><a href="#">特性</a></li>
+            <li><a href="#">价格</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <h1 class="hero-headline">轻松管理，无限可能。</h1>
+        <p class="hero-subtitle">我们提供强大的工具，助你高效工作，实现梦想。立即开始，改变你的生活方式！</p>
+        <a href="#" class="cta-button">立即体验免费版</a>
+    </section>
+
+    <script>
+        // JavaScript 用于移动端导航菜单切换
+        const navbarToggle = document.getElementById('navbar-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        navbarToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+
+        // 你可以在这里添加更多 JavaScript 动画或交互逻辑
+        // 例如：滚动时元素的淡入效果 (Intersection Observer API)
+        // 或者平滑滚动到锚点
+    </script>
+</body>
+</html>
