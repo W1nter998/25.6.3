@@ -41,8 +41,6 @@
             100% { transform: 1; }
         }
 
-        /* 顶部导航相关 CSS 移除，因为它已被删除 */
-
         /* 英雄部分 */
         .hero-section {
             background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%); /* 清爽的浅蓝渐变 */
@@ -312,77 +310,111 @@
 
         .bottom-cta-section h2 {
             color: white;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-size: 2.2em;
         }
 
-        .contact-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-            color: white;
-            text-align: center;
-        }
-
-        .contact-item {
-            background-color: rgba(255,255,255,0.1);
-            padding: 25px;
-            border-radius: 10px;
-            backdrop-filter: blur(5px);
+        .contact-methods {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* 默认垂直堆叠 */
             align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-        .contact-item:hover {
-            background-color: rgba(255,255,255,0.2);
+            gap: 30px; /* 增加整体间距 */
+            margin-top: 40px;
         }
 
-        .contact-item i {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+        .contact-card {
+            background-color: rgba(255,255,255,0.15); /* 略透明背景 */
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px; /* 控制卡片最大宽度 */
+            width: 100%; /* 允许卡片填充空间 */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255,255,255,0.25);
+        }
+
+        .contact-card i {
+            font-size: 3em;
             color: #ffc107; /* 强调色 */
+            margin-bottom: 20px;
         }
-        .contact-item h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
+        .contact-card h3 {
+            font-size: 1.6em;
             color: white;
+            margin-bottom: 15px;
         }
-        .contact-item p {
+        .contact-card p {
             font-size: 1.1em;
-            word-break: break-all; /* 确保长数字和邮箱不溢出 */
+            color: #eee;
+            margin-bottom: 10px;
         }
-        .contact-item a {
+        .contact-card a {
             color: white;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
-        .contact-item a:hover {
+        .contact-card a:hover {
             color: #ffc107;
         }
 
-        .qrcode-container {
-            margin-top: 20px;
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            display: inline-block; /* 使得容器大小包裹内容 */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .contact-address {
+            background-color: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
-        .qrcode-container img {
-            width: 150px; /* 控制二维码大小 */
-            height: 150px;
+        .contact-address:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255,255,255,0.25);
+        }
+        .contact-address i {
+            font-size: 3em;
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+        .contact-address h3 {
+            font-size: 1.6em;
+            color: white;
+            margin-bottom: 15px;
+        }
+        .contact-address p {
+            font-size: 1.1em;
+            color: #eee;
+        }
+        .qrcode-display {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            display: inline-block; /* 使得容器大小包裹内容 */
+            margin-top: 30px; /* 与上方元素间距 */
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: backwards;
+            opacity: 0;
+            animation-delay: 0.2s; /* 延迟出现，与动画联动 */
+        }
+        .qrcode-display img {
+            width: 180px; /* 增大二维码尺寸 */
+            height: 180px;
             display: block; /* 移除图片底部空白 */
         }
-        .qrcode-container p {
-            color: #333;
-            font-size: 0.9em;
-            margin-top: 10px;
+        .qrcode-display p {
+            color: #555;
+            font-size: 1em;
+            margin-top: 15px;
+            font-weight: 500;
         }
-
 
         /* 页脚 */
         .footer {
@@ -400,7 +432,7 @@
         }
 
         .social-links {
-            margin-top: 20px;
+            margin-top: 15px; /* 调整间距 */
         }
         .social-links a {
             color: #eee;
@@ -453,10 +485,7 @@
             .cta-button {
                 padding: 12px 25px;
                 font-size: 1em;
-                margin: 5px 0; /* 手机端按钮垂直堆叠 */
-            }
-            .cta-button:first-of-type { /* 调整第一个按钮的右外边距，在手机上无需 */
-                 margin-right: 0;
+                /* margin: 5px 0; */ /* 英雄部分按钮不需要垂直堆叠，只有一个 */
             }
 
             .content-section {
@@ -472,8 +501,22 @@
                 padding: 10px 15px;
                 font-size: 0.9em;
             }
-            .contact-info-grid {
-                grid-template-columns: 1fr; /* 手机端单列布局 */
+            .contact-methods {
+                flex-direction: column; /* 手机端保持垂直堆叠 */
+            }
+            .qrcode-display {
+                width: calc(100% - 40px); /* 手机端宽度适应 */
+            }
+        }
+        /* 桌面端布局 */
+        @media (min-width: 769px) {
+            .contact-methods {
+                flex-direction: row; /* 桌面端横向排列 */
+                justify-content: center;
+                flex-wrap: wrap; /* 允许换行 */
+            }
+            .contact-card, .contact-address {
+                margin: 0 15px; /* 卡片之间间距 */
             }
         }
     </style>
@@ -666,45 +709,38 @@
         <p style="margin-bottom: 30px; font-size: 1.1em; max-width: 700px; margin-left: auto; margin-right: auto;">
             无论是新办企业、新个体工商户，还是老企业/个体户的财税难题，我们都能为您提供专业的解决方案。
         </p>
-        <div class="contact-info-grid">
-            <div class="contact-item">
+        
+        <div class="contact-methods">
+            <div class="contact-card animate-on-scroll">
                 <i class="fas fa-phone-alt"></i>
-                <h3>电话咨询</h3>
+                <h3>电话 / 邮箱咨询</h3>
                 <p>
                     <a href="tel:17395711633">17395711633</a>
                     <br> (手机同号，欢迎随时来电)
                 </p>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <h3>邮箱联系</h3>
-                <p>
+                <p style="margin-top: 10px;">
                     <a href="mailto:17395711633@163.com">17395711633@163.com</a>
                 </p>
             </div>
-            <div class="contact-item">
-                <i class="fab fa-weixin"></i>
-                <h3>微信咨询</h3>
-                <div class="qrcode-container">
-                    <img src="https://via.placeholder.com/150/FFC107/FFFFFF?text=微信二维码" alt="微信二维码">
-                    <p>扫码添加微信，1对1在线咨询</p>
-                </div>
-            </div>
-            <div class="contact-item">
+            <div class="contact-address animate-on-scroll" style="animation-delay: 0.1s;">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>公司地址</h3>
                 <p>浙江省杭州市滨江区西兴街道泽明科创园211</p>
-                <p style="font-size:0.9em; margin-top:5px;">(欢迎预约上门洽谈)</p>
+                <p style="font-size:0.95em; margin-top:10px; color:#ddd;">(欢迎预约上门洽谈)</p>
             </div>
+        </div>
+
+        <div class="qrcode-display animate-on-scroll" style="animation-delay: 0.3s;">
+            <img src="https://via.placeholder.com/180/FFC107/FFFFFF?text=微信二维码" alt="微信二维码">
+            <p>扫码添加微信，一对一在线咨询</p>
         </div>
         
     </section>
 
     <footer class="footer">
         <p>Copyright &copy; 2023 杭州鋆赫财税服务有限公司. All rights reserved.</p>
-        <p>联系电话：<a href="tel:17395711633" style="color:#eee; text-decoration:none;">17395711633</a> | 邮箱：<a href="mailto:17395711633@163.com" style="color:#eee; text-decoration:none;">17395711633@163.com</a></p>
+        <p>专业代账 | 工商注册 | 地址挂靠 | 高新申报 | 财税咨询</p>
         <p>公司地址：浙江省杭州市滨江区西兴街道泽明科创园211</p>
-        <p>专业代账 | 工商注册 | 地址挂靠 | 高新申报 | 财税咨询 | 立足杭州滨江，服务全城及周边</p>
         <div class="social-links">
             <a href="#" target="_blank" title="微信"><i class="fab fa-weixin"></i></a>
             <a href="#" target="_blank" title="微博"><i class="fab fa-weibo"></i></a>
@@ -773,6 +809,11 @@
             }
             .bottom-cta-section.is-animated,
             .content-section h2.is-animated {
+                animation: fadeIn 1s ease-out forwards;
+            }
+            /* 特别针对 qrcode-display 添加动画，确保它也动画 */
+            .qrcode-display.is-animated {
+                opacity: 1;
                 animation: fadeIn 1s ease-out forwards;
             }
         `;
