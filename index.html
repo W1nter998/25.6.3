@@ -45,6 +45,11 @@
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
         /* 顶部导航 */
         .navbar {
@@ -273,6 +278,76 @@
             margin-top: 10px;
         }
 
+        /* 产品展示部分 */
+        .showcase-section {
+            background-color: #e6eaf0;
+            padding: 80px 20px;
+        }
+        .showcase-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .showcase-image, .showcase-video {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            margin-top: 40px;
+            opacity: 0; /* 初始隐藏 */
+            animation: slideInUp 1s ease-out forwards;
+        }
+        .showcase-image {
+            height: auto; /* 保持图片比例 */
+        }
+        .showcase-video {
+            aspect-ratio: 16 / 9; /* 16:9 比例 */
+            background-color: #000; /* 视频背景 */
+        }
+
+        /* FAQ 部分 */
+        .faq-section {
+            background-color: #f9f9f9;
+        }
+        .faq-item {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-align: left;
+            opacity: 0;
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            color: #666;
+            padding-top: 0;
+        }
+        .faq-answer.active {
+            max-height: 200px; /* 根据内容调整 */
+            padding-top: 15px;
+        }
+
         /* 底部 CTA 部分 */
         .bottom-cta-section {
             background: linear-gradient(to right, #2575fc, #6a11cb); /* 和顶部导航相同的渐变 */
@@ -303,6 +378,20 @@
 
         .footer p {
             margin: 0;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            color: #eee;
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #00c6ff;
+            transform: translateY(-3px);
         }
 
         /* 手机端适配 (保持不变) */
@@ -357,6 +446,10 @@
             .content-section h2 {
                 font-size: 2em;
             }
+
+            .showcase-image, .showcase-video {
+                margin-top: 30px;
+            }
         }
     </style>
 </head>
@@ -369,9 +462,10 @@
         </button>
         <ul class="navbar-menu" id="navbar-menu">
             <li><a href="#features">产品</a></li>
+            <li><a href="#showcase">展示</a></li>
             <li><a href="#testimonials">评价</a></li>
+            <li><a href="#faq">常见问题</a></li>
             <li><a href="#cta-bottom">体验</a></li>
-            <li><a href="#">联系</a></li>
         </ul>
     </nav>
 
@@ -409,6 +503,13 @@
         </div>
     </section>
 
+    <section id="showcase" class="content-section showcase-section">
+        <h2 class="animate-on-scroll">产品展示</h2>
+        <div class="showcase-content">
+            <img src="https://via.placeholder.com/700x400/f0f0f0/333333?text=YOUR+PRODUCT+SCREENSHOT" alt="产品截图" class="showcase-image animate-on-scroll" style="animation-delay: 0.2s;">
+            </div>
+    </section>
+
     <section id="testimonials" class="content-section" style="background-color: #f9f9f9;">
         <h2 class="animate-on-scroll">用户评价</h2>
         <div class="testimonials-grid">
@@ -436,6 +537,44 @@
         </div>
     </section>
 
+    <section id="faq" class="content-section faq-section">
+        <h2 class="animate-on-scroll">常见问题</h2>
+        <div class="faq-container">
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    产品支持哪些操作系统？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>我们的产品支持主流的 Windows, macOS, Linux 操作系统，并提供移动端 iOS 和 Android 应用。</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll" style="animation-delay: 0.1s;">
+                <div class="faq-question">
+                    数据是否安全？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>我们采用行业领先的端到端加密技术和多层安全防护，确保您的数据在传输和存储过程中的绝对安全。</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll" style="animation-delay: 0.2s;">
+                <div class="faq-question">
+                    有免费试用期吗？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>是的，我们提供14天的免费试用期，您可以在此期间体验产品的全部高级功能。</p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll" style="animation-delay: 0.3s;">
+                <div class="faq-question">
+                    如何联系客服？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>您可以通过页面底部的联系方式，或直接发送邮件到 support@yourcompany.com 联系我们的客服团队。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="cta-bottom" class="bottom-cta-section animate-on-scroll">
         <h2>准备好提升你的工作效率了吗？</h2>
         <p style="margin-bottom: 30px; font-size: 1.1em; max-width: 700px; margin-left: auto; margin-right: auto;">立即免费注册，体验这款革新性的产品，开启你的高效之旅！</p>
@@ -444,6 +583,12 @@
 
     <footer class="footer">
         <p>&copy; 2023 你的公司名称. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
     </footer>
 
     <script>
@@ -455,47 +600,88 @@
             navbarMenu.classList.toggle('active');
         });
 
-        // 滚动时元素的淡入效果 (Intersection Observer API)
+        // 滚动时元素的淡入效果 (Intersection Observer API) - 保持不变
         const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // 如果元素进入视口，添加 animated 类以触发CSS动画
                     entry.target.classList.add('is-animated');
-                    // 停止观察，避免重复触发
                     observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.1, // 元素 10% 进入视口时触发
-            rootMargin: '0px 0px -50px 0px' // 视口底部以上50px触发，避免太早触发
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
 
         animateOnScrollElements.forEach(element => {
             observer.observe(element);
         });
 
-        // 添加一个CSS规则，当有 'is-animated' 类时，动画生效
         const styleSheet = document.createElement('style');
         styleSheet.type = 'text/css';
         styleSheet.innerText = `
             .animate-on-scroll.is-animated {
                 opacity: 1;
                 transform: translateY(0);
-                animation: fadeIn 1s ease-out forwards; /* 使用 forwards 保持动画结束状态 */
+                animation: fadeIn 1s ease-out forwards;
             }
-            /* 针对 feature-item 和 testimonial-item 的特定动画 */
             .feature-item.is-animated,
-            .testimonial-item.is-animated {
+            .testimonial-item.is-animated,
+            .faq-item.is-animated,
+            .showcase-image.is-animated,
+            .showcase-video.is-animated { /* 为新元素添加动画 */
                 animation: slideInUp 1s ease-out forwards;
             }
             .bottom-cta-section.is-animated {
                 animation: fadeIn 1s ease-out forwards;
             }
+            .content-section h2.is-animated { /* 标题的淡入 */
+                opacity: 1;
+                transform: translateY(0);
+                animation: fadeIn 1s ease-out forwards;
+            }
         `;
         document.head.appendChild(styleSheet);
 
+        // FAQ 可展开/收起功能
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            question.addEventListener('click', () => {
+                // 关闭所有其他打开的 FAQ
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.faq-question').classList.remove('active');
+                        otherItem.querySelector('.faq-answer').classList.remove('active');
+                    }
+                });
+
+                // 切换当前 FAQ 的状态
+                question.classList.toggle('active');
+                answer.classList.toggle('active');
+            });
+        });
+
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // 如果是移动端菜单，点击后关闭菜单
+                if (navbarMenu.classList.contains('active')) {
+                    navbarMenu.classList.remove('active');
+                }
+            });
+        });
 
     </script>
 </body>
