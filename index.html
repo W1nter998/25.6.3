@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鋆赫财税 - 您的专业财税管家，赋能企业卓见未来</title>
+    <title>鋆赫财税：赋能企业，智启财富新篇章</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* CSS Reset 和通用样式 */
@@ -14,22 +14,22 @@
         }
 
         body {
-            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif; /* 优先使用苹方 */
-            line-height: 1.8; /* 增加行高，提升阅读舒适度 */
-            color: #333;
-            background-color: #f8fafd; /* 更柔和的背景色 */
-            overflow-x: hidden; /* 防止水平滚动 */
-            min-height: 100vh;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif; /* 优先使用苹方，确保中文显示效果 */
+            line-height: 1.8; /* 优化行高，提升文本可读性 */
+            color: #333; /* 基础文本颜色 */
+            background-color: #f8fafd; /* 网站整体背景色，柔和清爽 */
+            overflow-x: hidden; /* 防止页面出现水平滚动条 */
+            min-height: 100vh; /* 确保页面至少占满视口高度 */
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* 使页脚始终保持在底部 */
         }
 
         /* 通用区块间距 */
         section {
-            padding: 80px 20px;
+            padding: 90px 20px; /* 各内容区块的上下内边距 */
         }
 
-        /* 动画关键帧 */
+        /* 动画关键帧定义 */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -42,62 +42,64 @@
         
         @keyframes pulsate {
             0% { transform: scale(1); }
-            50% { transform: scale(1.03); } /* 轻微脉动效果 */
+            50% { transform: scale(1.03); } /* 按钮的轻微脉动动画 */
             100% { transform: 1; }
         }
 
-        /* 顶部导航栏 */
+        /* 顶部导航栏样式 */
         .main-header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08); /* 略微增强阴影 */
-            padding: 15px 30px; /* 增加左右内边距 */
+            background-color: #ffffff; /* 导航栏背景色 */
+            box-shadow: 0 3px 18px rgba(0,0,0,0.08); /* 导航栏阴影效果 */
+            padding: 15px 40px; /* 导航栏内边距 */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
+            position: sticky; /* 粘性定位，滚动时固定在顶部 */
             top: 0;
             width: 100%;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
+            z-index: 1000; /* 确保导航栏在最上层 */
+            transition: background-color 0.3s ease; /* 背景色过渡动画 */
         }
 
         .main-header.scrolled {
-            background-color: rgba(255, 255, 255, 0.98); /* 滚动后背景更显眼 */
+            background-color: rgba(255, 255, 255, 0.98); /* 滚动后背景略微透明 */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* 滚动后阴影略微减弱 */
         }
 
         .logo {
             font-size: 1.8em;
             font-weight: bold;
-            color: #0056b3;
+            color: #0056b3; /* Logo文字颜色 */
             text-decoration: none;
             display: flex;
             align-items: center;
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out; /* 悬停动画 */
         }
         .logo:hover {
             transform: scale(1.02);
         }
         .logo img {
-            max-height: 45px; /* Logo 图片高度，略微增大 */
-            width: auto;
-            margin-right: 12px; /* 增大间距 */
-            border-radius: 6px; /* 更圆润的圆角 */
+            max-height: 48px; /* Logo图片最大高度 */
+            width: auto; /* 宽度自适应，保持比例 */
+            margin-right: 15px; /* 图片与文字的间距 */
+            border-radius: 8px; /* Logo图片圆角 */
         }
         .logo span {
-            font-size: 1.3em; /* 文字部分略大 */
-            white-space: nowrap; /* 防止文字换行 */
+            font-size: 1.4em; /* Logo文字部分字体大小 */
+            white-space: nowrap; /* 防止Logo文字换行 */
+            color: #004080; /* Logo文字颜色 */
         }
 
         .nav-links {
             display: flex;
-            gap: 35px; /* 增大导航链接间距 */
+            gap: 40px; /* 导航链接之间的间距 */
         }
 
         .nav-links a {
-            color: #0056b3;
+            color: #0056b3; /* 导航链接颜色 */
             text-decoration: none;
             font-weight: 500;
-            font-size: 1.08em; /* 导航字体略大 */
+            font-size: 1.1em; /* 导航链接字体大小 */
             transition: color 0.3s ease;
             position: relative;
         }
@@ -105,12 +107,12 @@
             content: '';
             position: absolute;
             width: 0;
-            height: 3px; /* 下划线更粗 */
-            background-color: #007bff;
-            left: 50%; /* 从中间开始扩展 */
+            height: 3px; /* 导航链接下划线粗细 */
+            background-color: #007bff; /* 下划线颜色 */
+            left: 50%; /* 下划线从中间开始扩展 */
             transform: translateX(-50%);
-            bottom: -8px; /* 距离文字更远 */
-            transition: width 0.3s ease;
+            bottom: -10px; /* 下划线与文字的距离 */
+            transition: width 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); /* 更平滑的下划线动画 */
         }
         .nav-links a:hover {
             color: #007bff;
@@ -119,10 +121,10 @@
             width: 100%;
         }
 
-        /* 英雄部分 */
+        /* 英雄部分 (Hero Section) */
         .hero-section {
-            background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%);
-            padding: 100px 20px 120px; /* 调整内边距，顶部和底部都更饱满 */
+            background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%); /* 清新渐变背景 */
+            padding: 120px 20px 140px; /* 充足的内边距，营造大气感 */
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -131,10 +133,10 @@
             flex-grow: 1;
             position: relative;
             overflow: hidden;
-            min-height: calc(100vh - 75px); /* 减去header高度，考虑可能增大的Logo */
+            min-height: calc(100vh - 80px); /* 确保 hero 部分足够高 */
         }
 
-        .hero-section::before { /* 背景粒子效果 */
+        .hero-section::before { /* 背景粒子/图案效果 */
             content: '';
             position: absolute;
             top: 0;
@@ -145,8 +147,8 @@
                 radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 1%, transparent 1%),
                 radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05) 2%, transparent 2%),
                 radial-gradient(circle at 40% 50%, rgba(255,255,255,0.08) 1.5%, transparent 1.5%);
-            background-size: 60px 60px, 120px 120px, 80px 80px;
-            animation: moveBackground 40s linear infinite;
+            background-size: 60px 60px, 120px 120px, 80px 80px; /* 粒子大小 */
+            animation: moveBackground 40s linear infinite; /* 背景移动动画 */
             opacity: 0.7;
             z-index: 0;
         }
@@ -158,141 +160,117 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 900px; /* 增大内容最大宽度 */
+            max-width: 960px; /* 英雄区域内容最大宽度 */
         }
 
         .hero-headline {
-            font-size: 3.2em; /* 标题更大 */
+            font-size: 3.6em; /* 核心标题字体大小 */
             font-weight: bold;
-            color: #004080; /* 更深沉的蓝色 */
-            margin-bottom: 20px;
+            color: #003366; /* 深蓝色，突出主题 */
+            margin-bottom: 25px;
             line-height: 1.3;
             animation: fadeIn 1s ease-out;
             animation-delay: 0.2s;
             animation-fill-mode: backwards;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1); /* 增加轻微文字阴影 */
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.1); /* 标题文字阴影 */
         }
 
         .hero-subtitle {
-            font-size: 1.35em; /* 副标题更大 */
-            color: #005bb5; /* 略深的浅蓝色 */
-            margin-bottom: 40px;
+            font-size: 1.45em; /* 副标题字体大小 */
+            color: #005bb5; /* 略浅的蓝色，与主标题区分 */
+            margin-bottom: 50px;
             animation: fadeIn 1s ease-out;
             animation-delay: 0.4s;
             animation-fill-mode: backwards;
-            max-width: 700px; /* 限制副标题宽度 */
+            max-width: 800px; /* 限制副标题宽度 */
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(to right, #28a745, #218838);
+            background: linear-gradient(to right, #28a745, #218838); /* 绿色渐变按钮 */
             color: white;
-            padding: 18px 45px; /* 按钮更大 */
-            border-radius: 50px;
+            padding: 20px 50px; /* 按钮内边距，增大点击区域 */
+            border-radius: 50px; /* 圆角按钮 */
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.2em; /* 按钮文字更大 */
+            font-size: 1.25em; /* 按钮文字大小 */
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.4); /* 增强阴影 */
-            animation: fadeIn 1s ease-out, pulsate 2s infinite;
+            box-shadow: 0 12px 25px rgba(40, 167, 69, 0.45); /* 按钮阴影效果 */
+            animation: fadeIn 1s ease-out, pulsate 2s infinite; /* 淡入和脉动动画 */
             animation-delay: 0.6s;
             animation-fill-mode: backwards;
         }
 
         .cta-button:hover {
-            transform: translateY(-5px); /* 抬升更多 */
-            box-shadow: 0 15px 30px rgba(40, 167, 69, 0.5); /* 阴影更明显 */
-            background: linear-gradient(to right, #218838, #1e7e34); /* 渐变色变深 */
+            transform: translateY(-6px); /* 悬停抬升效果 */
+            box-shadow: 0 18px 35px rgba(40, 167, 69, 0.55); /* 悬停阴影更明显 */
+            background: linear-gradient(to right, #218838, #1e7e34); /* 悬停时渐变色变深 */
         }
 
-        /* 通用内容区块样式 */
-        .content-section {
-            padding: 90px 20px; /* 增加上下内边距 */
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px; /* 增加区块圆角 */
-        }
-        /* 针对内容区块的通用背景图案 */
-        .content-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="2.5" fill="%23dceaf7" opacity="0.6"/><circle cx="80" cy="80" r="2.5" fill="%23dceaf7" opacity="0.6"/></svg>') 0 0 / 60px 60px repeat; /* 稍大、更柔和的图案 */
-            opacity: 0.8;
-            z-index: -1;
-            pointer-events: none;
-            background-attachment: fixed;
-            transition: opacity 0.5s ease;
-        }
-
-
+        /* 通用内容区块标题 */
         .content-section h2 {
-            font-size: 2.8em; /* 标题更大 */
-            color: #004080;
-            margin-bottom: 50px; /* 标题下间距更大 */
+            font-size: 3em; /* 区块标题字体大小 */
+            color: #003366;
+            margin-bottom: 60px; /* 标题下间距 */
             animation: fadeIn 1s ease-out;
             animation-fill-mode: backwards;
             opacity: 0;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.05); /* 标题文字阴影 */
+            font-weight: 700;
         }
-        .content-section h3 {
-            font-size: 2em; /* 子标题更大 */
+        .content-section h3 { /* 小标题 */
+            font-size: 2.2em;
             color: #007bff;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         /* 核心服务部分 */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 服务项最小宽度 */
-            gap: 40px; /* 增大间距 */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 服务项最小宽度 */
+            gap: 45px; /* 服务项之间的间距 */
             margin-top: 50px;
         }
 
         .service-item {
             background-color: white;
-            padding: 35px; /* 增加内边距 */
-            border-radius: 12px; /* 更圆润的圆角 */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12); /* 增强阴影 */
-            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease; /* 更平滑的动画 */
+            padding: 40px; /* 服务项内边距 */
+            border-radius: 15px; /* 圆角 */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15); /* 服务项阴影 */
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease; /* 平滑过渡动画 */
             animation: slideInUp 1s ease-out;
             animation-fill-mode: backwards;
             opacity: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            border: 1px solid #e0e0e0; /* 增加细微边框 */
+            border: 1px solid #e5f0ff; /* 细微边框 */
         }
 
         .service-item:hover {
-            transform: translateY(-12px); /* 抬升更多 */
-            box-shadow: 0 18px 40px rgba(0,0,0,0.18); /* 阴影更明显 */
+            transform: translateY(-15px); /* 悬停抬升效果 */
+            box-shadow: 0 22px 50px rgba(0,0,0,0.22); /* 悬停阴影更明显 */
         }
 
         .service-item i {
-            font-size: 4em; /* 图标更大 */
-            color: #007bff;
-            margin-bottom: 25px; /* 图标下间距 */
+            font-size: 4.5em; /* 服务图标大小 */
+            color: #007bff; /* 图标颜色 */
+            margin-bottom: 30px; /* 图标下间距 */
         }
 
         .service-item h3 {
-            font-size: 1.6em; /* 服务标题更大 */
+            font-size: 1.7em; /* 服务标题大小 */
             color: #222;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-weight: 600;
         }
 
         .service-item p {
-            font-size: 1.05em; /* 服务描述字体略大 */
+            font-size: 1.08em; /* 服务描述字体大小 */
             color: #555;
             line-height: 1.7;
         }
@@ -300,56 +278,55 @@
         /* 我们的优势部分 */
         .advantages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 优势项最小宽度 */
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 优势项最小宽度 */
+            gap: 40px;
             margin-top: 50px;
         }
         .advantage-item {
             background: white;
-            padding: 30px; /* 增加内边距 */
-            border-radius: 12px;
-            box-shadow: 0 7px 20px rgba(0,0,0,0.1); /* 增强阴影 */
+            padding: 35px; /* 优势项内边距 */
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12); /* 优势项阴影 */
             text-align: left;
             opacity: 0;
             animation: slideInUp 0.8s ease-out forwards;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #eef5ff; /* 浅色边框 */
+            border: 1px solid #eef5ff;
         }
         .advantage-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.18);
         }
         .advantage-item i {
-            color: #28a745;
-            font-size: 3em; /* 图标更大 */
-            margin-bottom: 20px;
+            color: #28a745; /* 优势图标颜色 */
+            font-size: 3.5em; /* 优势图标大小 */
+            margin-bottom: 25px;
         }
         .advantage-item h4 {
-            font-size: 1.3em; /* 优势标题更大 */
+            font-size: 1.4em; /* 优势标题大小 */
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 600;
         }
         .advantage-item p {
-            font-size: 1em; /* 优势描述字体 */
+            font-size: 1.05em; /* 优势描述字体大小 */
             color: #666;
             line-height: 1.7;
         }
 
-
         /* 客户见证部分 */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 见证项最小宽度 */
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 见证项最小宽度 */
+            gap: 45px;
             margin-top: 50px;
         }
 
         .testimonial-item {
             background-color: white;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
             text-align: left;
             animation: slideInUp 1s ease-out;
             animation-fill-mode: backwards;
@@ -358,49 +335,53 @@
             border: 1px solid #e0e0e0;
         }
         .testimonial-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+            transform: translateY(-10px);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.22);
         }
 
         .testimonial-item p {
-            font-style: italic;
+            font-style: italic; /* 斜体 */
             color: #555;
-            margin-bottom: 20px; /* 间距增大 */
-            font-size: 1.05em;
+            margin-bottom: 25px;
+            font-size: 1.08em;
             line-height: 1.7;
         }
 
         .testimonial-author {
             font-weight: bold;
             color: #333;
-            font-size: 1.1em;
+            font-size: 1.15em;
         }
 
         .testimonial-rating {
-            color: #ffc107;
-            font-size: 1.2em; /* 星星更大 */
+            color: #ffc107; /* 星星颜色 */
+            font-size: 1.3em; /* 星星大小 */
             margin-top: 10px;
         }
 
         /* FAQ 部分 */
         .faq-section {
-            background-color: #f0f4f7; /* 略深的背景 */
-            padding-bottom: 90px; /* 保持底部内边距 */
+            background-color: #f0f4f7;
+            padding-bottom: 90px;
+        }
+        .faq-container {
+            max-width: 960px; /* 限制 FAQ 容器宽度 */
+            margin: 0 auto;
         }
         .faq-item {
             background-color: white;
-            padding: 25px; /* 增加内边距 */
-            margin-bottom: 20px; /* 增加间距 */
-            border-radius: 10px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            padding: 30px; /* FAQ项内边距 */
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 7px 20px rgba(0,0,0,0.1);
             text-align: left;
             opacity: 0;
             animation: slideInUp 0.8s ease-out forwards;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .faq-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
         }
         .faq-question {
             display: flex;
@@ -409,12 +390,12 @@
             font-weight: bold;
             color: #333;
             cursor: pointer;
-            font-size: 1.15em; /* 问题字体更大 */
-            padding-bottom: 5px; /* 增加一些内边距 */
+            font-size: 1.2em; /* 问题字体大小 */
+            padding-bottom: 5px;
         }
         .faq-question i {
             transition: transform 0.3s ease;
-            font-size: 0.9em; /* 图标略小 */
+            font-size: 0.95em;
         }
         .faq-question.active i {
             transform: rotate(180deg);
@@ -422,24 +403,24 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* 更平滑的动画 */
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
             color: #666;
             padding-top: 0;
-            font-size: 1em;
+            font-size: 1.05em;
             line-height: 1.7;
         }
         .faq-answer.active {
-            max-height: 250px; /* 增大最大高度以适应更多内容 */
-            padding-top: 15px;
+            max-height: 300px; /* 增大最大高度以适应更多内容 */
+            padding-top: 20px;
         }
 
         /* 底部 CTA 部分 */
         .bottom-cta-section {
-            background: linear-gradient(to right, #007bff, #20c997);
+            background: linear-gradient(to right, #007bff, #20c997); /* 醒目渐变背景 */
             color: white;
-            padding: 80px 20px; /* 增加内边距 */
+            padding: 100px 20px; /* 充足内边距 */
             text-align: center;
-            margin-top: 80px; /* 增加上边距 */
+            margin-top: 100px; /* 与上一区块的间距 */
             animation: fadeIn 1s ease-out;
             animation-fill-mode: backwards;
             opacity: 0;
@@ -447,143 +428,689 @@
 
         .bottom-cta-section h2 {
             color: white;
-            margin-bottom: 35px;
-            font-size: 2.5em; /* 标题更大 */
+            margin-bottom: 40px;
+            font-size: 2.8em;
             font-weight: bold;
-            line-height: 1.3;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+            line-height: 1.4;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
         }
 
         .bottom-cta-section p {
-            font-size: 1.2em; /* 文字更大 */
-            max-width: 800px; /* 限制宽度 */
-            margin: 0 auto 50px; /* 居中并增大下边距 */
-            line-height: 1.7;
+            font-size: 1.25em;
+            max-width: 850px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.95);
         }
-
+        
         .contact-methods {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 40px; /* 增大整体间距 */
-            margin-top: 40px;
+            gap: 50px; /* 增大联系方式卡片间距 */
+            margin-top: 50px;
         }
 
         .contact-card, .contact-address {
-            background-color: rgba(255,255,255,0.2); /* 略透明背景，更明显 */
-            backdrop-filter: blur(8px); /* 略微增强模糊 */
-            padding: 35px; /* 增加内边距 */
-            border-radius: 15px; /* 更圆润的圆角 */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* 增强阴影 */
+            background-color: rgba(255,255,255,0.25); /* 略透明背景，更清晰 */
+            backdrop-filter: blur(10px); /* 增强背景模糊效果 */
+            padding: 40px; /* 卡片内边距 */
+            border-radius: 18px; /* 更圆润的圆角 */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.35); /* 更强的阴影 */
             text-align: center;
-            max-width: 450px; /* 增大卡片最大宽度 */
+            max-width: 480px; /* 增大卡片最大宽度 */
             width: 100%;
             transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.3); /* 增加浅色边框 */
+            border: 1px solid rgba(255,255,255,0.4); /* 增加清晰的边框 */
         }
         .contact-card:hover, .contact-address:hover {
-            transform: translateY(-8px);
-            background-color: rgba(255,255,255,0.3);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            transform: translateY(-10px);
+            background-color: rgba(255,255,255,0.35);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.45);
         }
 
         .contact-card i, .contact-address i {
-            font-size: 3.5em; /* 图标更大 */
-            color: #ffc107;
-            margin-bottom: 25px;
+            font-size: 4em; /* 图标大小 */
+            color: #ffdd44; /* 强调色 */
+            margin-bottom: 30px;
         }
         .contact-card h3, .contact-address h3 {
-            font-size: 1.8em; /* 标题更大 */
+            font-size: 2em; /* 标题大小 */
             color: white;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
         .contact-card p, .contact-address p {
-            font-size: 1.15em; /* 文字更大 */
-            color: #eee;
-            margin-bottom: 12px;
-            line-height: 1.6;
+            font-size: 1.2em; /* 文字大小 */
+            color: #f0f0f0;
+            margin-bottom: 15px;
+            line-height: 1.7;
         }
         /* 括号内容样式统一 */
         .contact-card p small, .contact-address p small {
             display: block;
-            font-size: 0.9em; /* 略大一点 */
-            color: rgba(255, 255, 255, 0.8); /* 淡化颜色，更清晰 */
-            margin-top: 8px;
-            line-height: 1.4;
+            font-size: 0.95em; /* 括号内文字大小 */
+            color: rgba(255, 255, 255, 0.85); /* 括号内文字颜色 */
+            margin-top: 10px;
+            line-height: 1.5;
         }
         .contact-card a {
             color: white;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
-            display: block; /* 链接独立一行 */
+            display: block;
         }
         .contact-card a:hover {
-            color: #ffdd44; /* 亮黄色 */
+            color: #ffdd44;
         }
 
         .qrcode-display {
             background-color: white;
-            padding: 25px; /* 增加内边距 */
-            border-radius: 15px; /* 更圆润的圆角 */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* 增强阴影 */
-            display: inline-block;
-            margin-top: 50px; /* 增大与上方元素间距 */
+            padding: 30px; /* 二维码容器内边距 */
+            border-radius: 18px; /* 圆角 */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3); /* 阴影 */
+            margin-top: 60px; /* 与上方元素间距 */
             animation: fadeIn 1s ease-out;
             animation-fill-mode: backwards;
             opacity: 0;
             animation-delay: 0.2s;
-            max-width: 280px; /* 限制二维码容器宽度 */
+            max-width: 320px; /* 限制二维码容器最大宽度 */
+            margin-left: auto; /* 关键：居中 */
+            margin-right: auto; /* 关键：居中 */
         }
         .qrcode-display img {
-            width: 200px; /* 进一步增大二维码尺寸 */
-            height: 200px;
+            width: 220px; /* 进一步增大二维码尺寸 */
+            height: 220px;
             display: block;
-            margin: 0 auto; /* 居中二维码图片 */
+            margin: 0 auto; /* 确保二维码图片自身居中 */
         }
         .qrcode-display p {
             color: #555;
-            font-size: 1.05em; /* 文字略大 */
-            margin-top: 20px; /* 间距增大 */
+            font-size: 1.1em; /* 文字大小 */
+            margin-top: 25px;
             font-weight: 500;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* 页脚 */
         .footer {
-            background-color: #1a1a1a; /* 更深的黑色 */
+            background-color: #1c2a39; /* 更深的页脚背景色 */
             color: #e0e0e0;
-            padding: 40px 20px; /* 增加内边距 */
+            padding: 45px 20px; /* 页脚内边距 */
             text-align: center;
-            font-size: 0.95em;
+            font-size: 0.98em;
             margin-top: auto;
-            border-top: 1px solid #333; /* 顶部增加细线 */
+            border-top: 1px solid #2a3d52; /* 顶部细线 */
         }
 
         .footer p {
-            margin-bottom: 8px;
-            line-height: 1.6;
+            margin-bottom: 10px;
+            line-height: 1.7;
         }
 
         .social-links {
-            margin-top: 20px; /* 增大间距 */
+            margin-top: 25px;
         }
         .social-links a {
             color: #e0e0e0;
-            font-size: 1.6em; /* 图标更大 */
-            margin: 0 12px;
+            font-size: 1.7em; /* 社交图标大小 */
+            margin: 0 15px;
             transition: color 0.3s ease, transform 0.3s ease;
         }
         .social-links a:hover {
             color: #20c997;
-            transform: translateY(-4px) scale(1.1); /* 抬升并放大 */
+            transform: translateY(-5px) scale(1.15); /* 抬升并放大 */
         }
-        /* 可选：浮动咨询按钮 */
+        /* 浮动咨询按钮 */
         .fixed-contact-button {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #ffc107;
+            bottom: 35px;
+            right: 35px;
+            background: #ffc107; /* 强调色 */
             color: #333;
-            padding: 15px 25px; /* 按钮更大 */
-            border-radius: 50px
+            padding: 16px 28px; /* 按钮大小 */
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05em;
+        }
+        .fixed-contact-button:hover {
+            transform: translateY(-5px);
+            background: #e0a800;
+            box-shadow: 0 9px 20px rgba(0,0,0,0.3);
+        }
+
+        /* 手机端适配 */
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 10px 15px;
+            }
+            .logo {
+                font-size: 1.5em;
+            }
+            .logo img {
+                max-height: 35px; /* 手机端Logo高度 */
+                margin-right: 8px;
+            }
+            .logo span {
+                display: none; /* 在小屏幕上隐藏文字，只显示Logo图片 */
+            }
+            .nav-links {
+                display: none; /* 手机端通常隐藏导航，通过汉堡菜单等方式展现 */
+            }
+            .hero-section {
+                padding: 80px 15px 100px;
+                min-height: calc(100vh - 60px); /* 减去header高度 */
+            }
+            .hero-headline {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+            }
+            .hero-subtitle {
+                font-size: 1.15em;
+                margin-bottom: 40px;
+            }
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1.05em;
+            }
+            section {
+                padding: 60px 15px;
+            }
+            .content-section h2 {
+                font-size: 2.2em;
+                margin-bottom: 40px;
+            }
+            .service-item, .advantage-item, .testimonial-item, .faq-item {
+                padding: 25px;
+            }
+            .service-item i, .advantage-item i {
+                font-size: 3.5em;
+                margin-bottom: 20px;
+            }
+            .service-item h3, .advantage-item h4 {
+                font-size: 1.5em;
+            }
+            .service-item p, .advantage-item p, .testimonial-item p, .faq-answer p {
+                font-size: 0.95em;
+            }
+            .faq-question {
+                font-size: 1.1em;
+            }
+            .bottom-cta-section {
+                padding: 70px 15px;
+                margin-top: 70px;
+            }
+            .bottom-cta-section h2 {
+                font-size: 2em;
+                margin-bottom: 30px;
+            }
+            .bottom-cta-section p {
+                font-size: 1.1em;
+                margin-bottom: 40px;
+            }
+            .contact-methods {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .contact-card, .contact-address {
+                padding: 30px;
+                max-width: 100%;
+            }
+            .contact-card i, .contact-address i {
+                font-size: 3em;
+                margin-bottom: 20px;
+            }
+            .contact-card h3, .contact-address h3 {
+                font-size: 1.5em;
+            }
+            .qrcode-display {
+                width: calc(100% - 30px);
+                padding: 20px;
+                margin-top: 40px;
+            }
+            .qrcode-display img {
+                width: 160px;
+                height: 160px;
+            }
+             /* 手机端隐藏背景图案 */
+            .content-section::before {
+                display: none;
+            }
+            .fixed-contact-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 0.95em;
+            }
+        }
+        /* 桌面端布局 */
+        @media (min-width: 769px) {
+            .contact-methods {
+                flex-direction: row; /* 桌面端横向排列 */
+                justify-content: center;
+                flex-wrap: wrap; /* 允许换行 */
+            }
+            .contact-card, .contact-address {
+                margin: 0 20px; /* 卡片之间间距 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <a href="#hero" class="logo">
+            <img src="img/logo.png" alt="鋆赫财税Logo">
+            <span>鋆赫财税</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#services">核心服务</a>
+            <a href="#advantages">我们的优势</a>
+            <a href="#testimonials">客户见证</a>
+            <a href="#faq">常见问题</a>
+            <a href="#contact">联系我们</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-headline">鋆赫财税：您的智慧伙伴，赋能企业卓见未来！</h1>
+            <p class="hero-subtitle">
+                深耕财税领域，我们以专业精湛的代账报税、高效便捷的工商注册、合规稳妥的地址挂靠，以及精准扶持的高新申报服务，
+                为您的企业提供全方位、定制化的财税解决方案，助您在瞬息万变的市场中稳健前行，创造更大价值。
+            </p>
+            <a href="#contact" class="cta-button">即刻智享免费咨询 <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section id="services" class="content-section">
+        <h2 class="animate-on-scroll">我们的核心服务，您的卓越之选</h2>
+        <div class="services-grid">
+            <div class="service-item animate-on-scroll">
+                <i class="fas fa-calculator"></i>
+                <h3>专业代账报税</h3>
+                <p>
+                    资深会计团队，严谨遵循财税法规，为您提供精确记账、高效报税服务，
+                    确保账务清晰合规，免除您的后顾之忧。
+                </p>
+            </div>
+            <div class="service-item animate-on-scroll" style="animation-delay: 0.2s;">
+                <i class="fas fa-registered"></i>
+                <h3>高效工商注册</h3>
+                <p>
+                    从核名到执照办理，我们一站式代办各类企业、个体工商户注册，
+                    让您的创业之路畅通无阻，快速开启商业征程。
+                </p>
+            </div>
+            <div class="service-item animate-on-scroll" style="animation-delay: 0.4s;">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>合规地址挂靠</h3>
+                <p>
+                    提供合法、经济、稳定的注册地址挂靠方案，满足您的注册需求，
+                    助力企业合规运营，无惧工商年检。
+                </p>
+            </div>
+            <div class="service-item animate-on-scroll" style="animation-delay: 0.6s;">
+                <i class="fas fa-exchange-alt"></i>
+                <h3>工商财税变更与注销</h3>
+                <p>
+                    无论是企业信息变更、经营范围调整，或是疑难企业注销，
+                    我们专业的团队将为您提供妥善、高效的解决方案。
+                </p>
+            </div>
+            <div class="service-item animate-on-scroll" style="animation-delay: 0.8s;">
+                <i class="fas fa-medal"></i>
+                <h3>高新企业项目申报</h3>
+                <p>
+                    精准解读政策，全程辅导高新技术企业、省科小等项目申报，
+                    助您把握政策红利，提升企业创新竞争力。
+                </p>
+            </div>
+            <div class="service-item animate-on-scroll" style="animation-delay: 1.0s;">
+                <i class="fas fa-lightbulb"></i>
+                <h3>定制财税规划咨询</h3>
+                <p>
+                    根据企业实际情况，量身定制财税优化方案，合理规划税务结构，
+                    助力企业降低成本，实现经营效益最大化。
+                </p>
+            </div>
+             <div class="service-item animate-on-scroll" style="animation-delay: 1.2s;">
+                <i class="fas fa-search"></i>
+                <h3>税务异常专业处理</h3>
+                <p>
+                    面对突发税务异常，我们经验丰富的团队能迅速定位问题，
+                    提供专业应对策略，助您的企业快速恢复正常经营。
+                </p>
+            </div>
+             <div class="service-item animate-on-scroll" style="animation-delay: 1.4s;">
+                <i class="fas fa-chart-pie"></i>
+                <h3>年度汇算清缴服务</h3>
+                <p>
+                    专业进行企业所得税年度汇算清缴，确保申报准确无误，
+                    有效规避税务风险，保障企业财务健康。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages" class="content-section" style="background-color: #eaf6ff;">
+        <h2 class="animate-on-scroll">选择鋆赫财税，卓见八大核心优势</h2>
+        <div class="advantages-grid">
+            <div class="advantage-item animate-on-scroll">
+                <i class="fas fa-dollar-sign"></i>
+                <h4>费用透明，杜绝隐忧</h4>
+                <p>
+                    所有服务项目及费用公开透明，无任何隐形消费或附加条款，
+                    让您对每一笔支出都了然于心，安心托付。
+                </p>
+            </div>
+            <div class="advantage-item animate-on-scroll" style="animation-delay: 0.1s;">
+                <i class="fas fa-user-tie"></i>
+                <h4>专业团队，实力卓著</h4>
+                <p>
+                    由资深注册会计师、税务师领衔的专业团队，具备深厚的理论知识与丰富的实战经验，
+                    为您的企业提供高水准的财税服务。
+                </p>
+            </div>
+            <div class="advantage-item animate-on-scroll" style="animation-delay: 0.2s;">
+                <i class="fas fa-map-marked-alt"></i>
+                <h4>深耕本土，洞悉政策</h4>
+                <p>
+                    立足杭州滨江，辐射全省乃至全国，我们熟悉本地政策法规，
+                    能为您提供更精准、更具针对性的服务。
+                </p>
+            </div>
+            <div class="advantage-item animate-on-scroll" style="animation-delay: 0.3s;">
+                <i class="fas fa-history"></i>
+                <h4>高效响应，迅速解决</h4>
+                <p>
+                    我们深知时间就是财富，专业服务团队全天候待命，
+                    确保您的每一个财税问题都能得到及时、高效的解决。
+                </p>
+            </div>
+            <div class="advantage-item animate-on-scroll" style="animation-delay: 0.4s;">
+                <i class="fas fa-users"></i>
+                <h4>诚信为本，服务如一</h4>
+                <p>
+                    无论新老客户，我们始终秉持“客户至上，诚信为本”的原则，
+                    以专业、负责的态度，赢得每一份信任。
+                </p>
+            </div>
+            <div class="advantage-item animate-on-scroll" style="animation-delay: 0.5s;">
+                <i class="fas fa-handshake"></i>
+                <h4>专属定制，无缝沟通</h4>
+                <p>
+                    为每位客户配备专属服务经理，提供一对一的定制化方案，
+                    确保沟通顺畅高效，需求精准匹配。
+                </p>
+            </div>
+            <div class="advantage-item animate-on-scroll" style="animation-delay: 0.6s;">
+                <i class="fas fa-shield-alt"></i>
+                <h4>风险管控，稳健合规</h4>
+                <p>
+                    严格遵守最新财税法规，凭借前瞻性洞察，
+                    协助企业有效识别并规避潜在风险，确保稳健运营。
+                </p>
+            </div>
+            <div class="advantage-item animate-on-scroll" style="animation-delay: 0.7s;">
+                <i class="fas fa-heart"></i>
+                <h4>客户为先，口碑载道</h4>
+                <p>
+                    我们始终将客户满意度置于首位，凭借卓越的服务品质和良好的市场口碑，
+                    持续赢得客户的信赖与赞誉。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="content-section" style="background-color: #f9f9f9;">
+        <h2 class="animate-on-scroll">听听客户怎么说：我们共同成长的故事</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-item animate-on-scroll">
+                <p>"鋆赫财税的服务效率令人惊叹！从公司注册到地址挂靠，每一步都清晰明了，专业指导到位，让我在滨江的创业之路省心又省力。强烈推荐！"</p>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="testimonial-author">- 杭州创想科技 CEO 王先生</span>
+            </div>
+            <div class="testimonial-item animate-on-scroll" style="animation-delay: 0.2s;">
+                <p>"作为一家成长型企业，我们对财税服务的专业度和成本效益都有较高要求。鋆赫不仅提供了极具竞争力的代账价格，更在税务筹划上给予了宝贵建议，真正做到了为客户着想。"</p>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="testimonial-author">- 浙江飞驰贸易有限公司 李女士</span>
+            </div>
+            <div class="testimonial-item animate-on-scroll" style="animation-delay: 0.4s;">
+                <p>"面对复杂的企业注销流程，我们曾一度感到无从下手。幸好有鋆赫财税的专业团队全程耐心协助，细致周到地处理每一个环节，最终圆满解决，解除了我们的燃眉之急！"</p>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="testimonial-author">- 独立设计师工作室 陈总</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="content-section faq-section">
+        <h2 class="animate-on-scroll">常见疑问解答：为您扫清财税迷雾</h2>
+        <div class="faq-container">
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">
+                    注册一家新公司通常需要多长时间？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        一般而言，在您提供完整准确的资料后，我们通常能在3-5个工作日内协助您完成工商注册流程。
+                        具体时效可能会因各地政策法规的微调而略有差异，但我们会全程跟踪，确保高效办理。
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll" style="animation-delay: 0.1s;">
+                <div class="faq-question">
+                    鋆赫财税的代账服务具体包含哪些内容？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        我们的代账服务涵盖了从基础建账、日常记账、编制财务报表，到每月纳税申报、年度企业所得税汇算清缴，
+                        以及专业的财税风险预警与咨询等一站式全面服务，让您的财务管理更加省心、合规。
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll" style="animation-delay: 0.2s;">
+                <div class="faq-question">
+                    如果企业没有实际经营地址，是否还能顺利注册公司？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        当然可以。针对缺乏实际经营地址的客户，我们提供合法合规的注册地址挂靠服务，
+                        确保您的企业能够顺利通过工商注册，并符合后续监管要求。
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll" style="animation-delay: 0.3s;">
+                <div class="faq-question">
+                    企业注销流程是否复杂？鋆赫财税能否代为办理？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        企业注销流程确实相对复杂，涉及税务清算、工商注销、银行销户等多部门环节。
+                        鋆赫财税拥有专业的注销团队，可以全程为您代办所有手续，协助您妥善、高效地完成企业注销。
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll" style="animation-delay: 0.4s;">
+                <div class="faq-question">
+                    鋆赫财税的服务范围主要覆盖哪些地区？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        我们深耕于杭州市滨江区，并已将服务网络扩展至整个杭州市及周边主要城市。
+                        无论您身处何地，只要有财税服务需求，都欢迎随时与我们联系。
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item animate-on-scroll" style="animation-delay: 0.5s;">
+                <div class="faq-question">
+                    申报高新企业对公司发展有哪些具体益处？ <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>
+                        高新企业认证将为您的公司带来诸多政策红利，包括所得税优惠、研发费用加计扣除、政府专项资金扶持、
+                        品牌形象提升以及人才引进优势等。我们能专业协助您顺利申报，抓住发展机遇。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bottom-cta-section animate-on-scroll">
+        <h2>即刻联系鋆赫财税，共创企业辉煌新篇！</h2>
+        <p>
+            无论您的企业是初创起步，还是寻求持续发展，鋆赫财税都致力于成为您最值得信赖的财税伙伴。
+            我们期待与您携手，共同探索财税优化之道，助力您的事业腾飞。
+        </p>
+        
+        <div class="contact-methods">
+            <div class="contact-card animate-on-scroll">
+                <i class="fas fa-phone-alt"></i>
+                <h3>电话 / 邮箱咨询</h3>
+                <p>
+                    <a href="tel:17395711633">17395711633</a>
+                    <small>(手机同号，专属顾问24小时在线恭候)</small>
+                </p>
+                <p style="margin-top: 10px;">
+                    <a href="mailto:17395711633@163.com">17395711633@163.com</a>
+                    <small>(我们将在收到邮件后第一时间回复您)</small>
+                </p>
+            </div>
+            <div class="contact-address animate-on-scroll" style="animation-delay: 0.1s;">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>公司地址</h3>
+                <p>浙江省杭州市滨江区西兴街道泽明科创园211</p>
+                <small>(交通便利，期待您的莅临指导，建议提前预约)</small>
+            </div>
+        </div>
+
+        <div class="qrcode-display animate-on-scroll" style="animation-delay: 0.3s;">
+            <img src="img/wechat_qrcode.png" alt="微信二维码">
+            <p>扫码添加微信，尊享一对一专属财税顾问服务</p>
+        </div>
+        
+    </section>
+
+    <footer class="footer">
+        <p>Copyright &copy; 2023 杭州鋆赫财税服务有限公司. All rights reserved.</p>
+        <p>专业代账 | 工商注册 | 地址挂靠 | 高新申报 | 财税咨询</p>
+        <p>地址：浙江省杭州市滨江区西兴街道泽明科创园211</p>
+        <div class="social-links">
+            <a href="#" target="_blank" title="微信"><i class="fab fa-weixin"></i></a>
+            <a href="#" target="_blank" title="微博"><i class="fab fa-weibo"></i></a>
+            </div>
+    </footer>
+
+    <a href="#contact" class="fixed-contact-button">
+        <i class="fas fa-comments"></i> 立即咨询
+    </a>
+
+    <script>
+        // JavaScript 用于 FAQ 可展开/收起功能
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            question.addEventListener('click', () => {
+                // 关闭所有其他打开的 FAQ
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.faq-question').classList.remove('active');
+                        otherItem.querySelector('.faq-answer').classList.remove('active');
+                    }
+                });
+
+                // 切换当前 FAQ 的状态
+                question.classList.toggle('active');
+                answer.classList.toggle('active');
+            });
+        });
+
+        // 滚动时元素的淡入效果 (Intersection Observer API)
+        const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1, /* 当元素10%进入视口时触发 */
+            rootMargin: '0px 0px -50px 0px' /* 底部视口缩小50px */
+        });
+
+        animateOnScrollElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // 动态添加动画 CSS 规则
+        const styleSheet = document.createElement('style');
+        styleSheet.type = 'text/css';
+        styleSheet.innerText = `
+            .animate-on-scroll.is-animated {
+                opacity: 1;
+                transform: translateY(0);
+                animation: fadeIn 1s ease-out forwards; /* 默认淡入动画 */
+            }
+            /* 针对特定组件使用 slideInUp 动画 */
+            .service-item.is-animated,
+            .advantage-item.is-animated,
+            .testimonial-item.is-animated,
+            .faq-item.is-animated {
+                animation: slideInUp 1s ease-out forwards;
+            }
+            /* 针对底部 CTA 和标题使用 fadeIn 动画 */
+            .bottom-cta-section.is-animated,
+            .content-section h2.is-animated {
+                animation: fadeIn 1s ease-out forwards;
+            }
+            .qrcode-display.is-animated {
+                opacity: 1;
+                animation: fadeIn 1s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // 平滑滚动到锚点
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 导航栏滚动时背景变化
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
