@@ -69,7 +69,8 @@
             align-items: center;
         }
         .logo img {
-            height: 40px; /* Logo 图片高度 */
+            max-height: 40px; /* Logo 图片最大高度 */
+            width: auto; /* 宽度自适应，保持比例 */
             margin-right: 10px;
             border-radius: 5px; /* 如果Logo是图片，可以有轻微圆角 */
         }
@@ -584,7 +585,7 @@
                 font-size: 1.5em;
             }
             .logo img {
-                height: 30px;
+                height: 30px; /* 手机端Logo高度略小 */
             }
             .logo span {
                 display: none; /* 在小屏幕上隐藏文字，只显示Logo图片 */
@@ -649,6 +650,7 @@
 <body>
     <header class="main-header">
         <a href="#hero" class="logo">
+            <img src="img/image_f79161.png" alt="鋆赫财税Logo">
             <span>鋆赫财税</span>
         </a>
         <nav class="nav-links">
@@ -868,7 +870,7 @@
         </div>
 
         <div class="qrcode-display animate-on-scroll" style="animation-delay: 0.3s;">
-            <img src="https://via.placeholder.com/180/FFC107/FFFFFF?text=微信二维码" alt="微信二维码">
+            <img src="img/wechat_qrcode.png" alt="微信二维码">
             <p>扫码添加微信，尊享一对一专属咨询服务</p>
         </div>
         
