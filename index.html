@@ -41,19 +41,85 @@
             100% { transform: 1; }
         }
 
+        /* 顶部导航栏 */
+        .main-header {
+            background-color: #ffffff; /* 白色背景，轻微透明感 */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; /* 粘性定位 */
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95); /* 滚动后略微透明 */
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #0056b3;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px; /* Logo 图片高度 */
+            margin-right: 10px;
+            border-radius: 5px; /* 如果Logo是图片，可以有轻微圆角 */
+        }
+        .logo span {
+            font-size: 1.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #007bff;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #007bff;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         /* 英雄部分 */
         .hero-section {
             background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%); /* 清爽的浅蓝渐变 */
-            padding: 100px 20px; /* 增加顶部内边距，因为移除了导航栏 */
+            padding: 80px 20px 100px; /* 调整内边距，顶部稍微少一些，底部多一些 */
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* 保持内容居中 */
             align-items: center;
             flex-grow: 1;
             position: relative;
             overflow: hidden;
-            min-height: 80vh;
+            min-height: calc(100vh - 70px); /* 减去header高度 */
         }
 
         .hero-section::before { /* 背景粒子 */
@@ -126,9 +192,27 @@
         .content-section {
             padding: 80px 20px;
             text-align: center;
-            max-width: 1200px;
+            max-width: 1200px; /* 电脑端内容宽度 */
             margin: 0 auto;
+            position: relative; /* 用于背景图案定位 */
+            overflow: hidden; /* 防止背景溢出 */
         }
+        /* 针对内容区块的通用背景图案 */
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="2" fill="%23e0e0e0" opacity="0.4"/><circle cx="80" cy="80" r="2" fill="%23e0e0e0" opacity="0.4"/></svg>') 0 0 / 50px 50px repeat;
+            opacity: 0.2; /* 轻微透明 */
+            z-index: -1; /* 确保在内容之下 */
+            pointer-events: none; /* 确保不影响点击事件 */
+            background-attachment: fixed; /* 背景固定，滚动时有视差效果 */
+        }
+
 
         .content-section h2 {
             font-size: 2.5em;
@@ -156,7 +240,7 @@
             background-color: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* 增强阴影 */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: slideInUp 1s ease-out;
             animation-fill-mode: backwards;
@@ -167,8 +251,8 @@
         }
 
         .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transform: translateY(-8px); /* 略微抬升 */
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15); /* 阴影更明显 */
         }
 
         .service-item i {
@@ -199,10 +283,15 @@
             background: white;
             padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* 增强阴影 */
             text-align: left;
             opacity: 0;
             animation: slideInUp 0.8s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .advantage-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
         .advantage-item i {
             color: #28a745; /* 绿色 */
@@ -232,11 +321,16 @@
             background-color: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* 增强阴影 */
             text-align: left;
             animation: slideInUp 1s ease-out;
             animation-fill-mode: backwards;
             opacity: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
         }
 
         .testimonial-item p {
@@ -265,10 +359,15 @@
             padding: 20px;
             margin-bottom: 15px;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* 增强阴影 */
             text-align: left;
             opacity: 0;
             animation: slideInUp 0.8s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .faq-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
         .faq-question {
             display: flex;
@@ -478,10 +577,25 @@
 
         /* 手机端适配 */
         @media (max-width: 768px) {
-            .hero-section {
-                padding: 80px 15px; /* 调整手机端顶部内边距 */
+            .main-header {
+                padding: 10px 15px;
             }
-
+            .logo {
+                font-size: 1.5em;
+            }
+            .logo img {
+                height: 30px;
+            }
+            .logo span {
+                display: none; /* 在小屏幕上隐藏文字，只显示Logo图片 */
+            }
+            .nav-links {
+                display: none; /* 手机端通常隐藏导航，通过汉堡菜单等方式展现 */
+            }
+            .hero-section {
+                padding: 60px 15px 80px; /* 调整手机端顶部内边距 */
+                min-height: calc(100vh - 50px); /* 减去header高度 */
+            }
             .hero-headline {
                 font-size: 2em;
             }
@@ -514,6 +628,10 @@
             .qrcode-display {
                 width: calc(100% - 40px); /* 手机端宽度适应 */
             }
+             /* 手机端隐藏背景图案 */
+            .content-section::before {
+                display: none;
+            }
         }
         /* 桌面端布局 */
         @media (min-width: 769px) {
@@ -529,8 +647,20 @@
     </style>
 </head>
 <body>
+    <header class="main-header">
+        <a href="#hero" class="logo">
+            <span>鋆赫财税</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#services">核心服务</a>
+            <a href="#advantages">我们的优势</a>
+            <a href="#testimonials">客户见证</a>
+            <a href="#faq">常见问题</a>
+            <a href="#contact">联系我们</a>
+        </nav>
+    </header>
 
-    <section class="hero-section">
+    <section id="hero" class="hero-section">
         <div class="hero-content">
             <h1 class="hero-headline">鋆赫财税：您的专业财税伙伴，助力企业稳健发展！</h1>
             <p class="hero-subtitle">专业代账报税、工商注册、地址挂靠、高新申报，提供高效财税解决方案。</p>
@@ -706,7 +836,6 @@
                 </div>
                 <div class="faq-answer">
                     <p>高新企业可享受所得税优惠、研发费用加计扣除、政府项目扶持等多项政策支持，我们能协助您顺利申报。</p>
-                <p>
                 </div>
             </div>
         </div>
@@ -839,6 +968,16 @@
                     });
                 }
             });
+        });
+
+        // 导航栏滚动时背景变化
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.main-header');
+            if (window.scrollY > 50) { // 滚动超过50px时添加scrolled类
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
     </script>
 </body>
